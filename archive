@@ -1,0 +1,18 @@
+tar - command creates, appends, updates, lists, and extracts files to and from a single file, which is
+called a tar file (also a tarball).
+
+–c Creates a tarball.
+–f Specifies a tarball name.
+–j Compresses a tarball with bzip2 command.
+–r Appends files to the end of an existing tarball. Does not append to compressed tarballs.
+–t Lists contents of a tarball.
+–u Appends files to the end of an existing tarball if the specified files are newer. Does not append to compressed tarballs.
+–v Verbose mode.
+–x Extracts from a tarball.
+–z Compresses a tarball with gzip command.
+--selinux
+--no-selinux Includes (excludes) SELinux file contexts in archives.
+--xattrs / --no-xattrs Includes (excludes) extended file attributes in archives.
+
+examples:
+
