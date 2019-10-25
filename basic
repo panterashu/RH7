@@ -1,0 +1,81 @@
+Basic commands that are useful
+
+####################################################################################################
+
+ls - list of files and directories
+
+–a    lists hidden files also. If a file or directory name starts with a dot, it is considered hidden.
+–lh   displays long listing with file sizes in human readable format.
+–l    displays long listing with detailed file information including the file type, permissions, link count, owner, group, size, date and
+time of last modification, and name of the file.
+–ld   displays long listing of the specified directory, but hides its contents.
+–R    lists contents of the specified directory and all its sub-directories (recursive listing).
+–lt   lists all files sorted by date and time with the newest file first.
+–ltr  lists all files sorted by date and time with the oldest file first.
+
+####################################################################################################
+
+####################################################################################################
+
+pwd - print working directory
+
+####################################################################################################
+
+####################################################################################################
+cd - change directory
+
+~   go to home directory
+-   switch between current and previous directories
+..  go up one directory
+
+####################################################################################################
+
+####################################################################################################
+
+who - list currently logged-in users
+
+w
+
+####################################################################################################
+
+####################################################################################################
+
+uptime -  shows the system’s current time, how long it has been up for, number of users currently logged
+          in, and average number of processes over the past 1, 5, and 15 minutes
+
+####################################################################################################
+
+
+####################################################################################################
+
+id -  (identifier) command displays a user’s UID (user identifier), username, GID (group identifier), group name, all
+      secondary groups the user is a member of, and SELinux security context
+
+groups -  lists all groups a user is a member of
+
+####################################################################################################
+
+####################################################################################################
+
+last -  reports the history of successful user login attempts and system reboots
+
+last reboot - list only reboots
+
+lastb - reports the history of unsuccessful user login attempts
+
+lastlog - displays the recent user logins
+
+####################################################################################################
+
+####################################################################################################
+
+clear - clears the terminal screen and places the cursor at the beginning of the screen
+
+####################################################################################################
+
+####################################################################################################
+
+which - shows the path to the command that will execute if it is run without using its absolute path
+
+####################################################################################################
+
