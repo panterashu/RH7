@@ -1,1 +1,13 @@
+man command     - view help for a command
+
+man -k keyword  - keyword search on installed manual pages (apropos)
+
+coomand --help  -  get quick help on a command
+
+whatis          - a quick method for searching the specified command or file in the man database for a short description
+
+info command    - allow users to read command documentation
+
+/usr/share/doc  - stores documentation for all installed packages under sub-directories that match package names followed by their
+-<version>
 
