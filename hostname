@@ -1,0 +1,17 @@
+- ca sa aflu hostname: hostnamectl 
+
+- 3 tipuri de hostname:
+	- static: Assigned by the system admin
+	- dinamic: Assigned by DHCP or mDNS server at runtime
+	- pretty: Assigned by the system admin. Its can be used as Description like “Oracle DB server”
+	
+Cum se seteaza hostname:	
+hostnamectl set-hostname numeserver    ## static
+hostnamectl set-hostname "Nume Server"   ## pretty
+
+relogin ca sa vezi ca a mers, restart ca sa fii sigur ca merge
+
+alternative:
+- nmcli
+- nmtui
+editez /etc/hostname (restart)
