@@ -1,0 +1,21 @@
+Recuperat root password
+
+- reboot server si intrerupe bootloader (orice tasta)
+
+- aleg default entry (prima ) si apas e ca sa editez
+
+- caut linia ce incepe cu linux16 si ma duc la finalul liniei(tasta END) si adaug la final rd.break
+
+- ctrl+x ca sa salvez modificarea facuta
+
+- dau un mount ca sa verific status la sysroot (in mod normal /sysroot e in ca pe ro)
+
+- mount -o remount,rw /sysroot
+
+- passwd root
+
+- touch /.autorelabel
+
+- exit
+
+- exit
