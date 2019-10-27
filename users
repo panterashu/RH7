@@ -1,17 +1,39 @@
 
-useradd - creat useri
-passwd - setat parola useri
+useradd - creat useri (vipw)
+passwd - setat parola useri (vipw -s)
 userdel - sters user
-
-groupadd - creat grup nou
-groupdel sters grup
-
+usermod - modifica atribute la useri
+groupadd - creat grup nou (vigr)
+groupdel - sters grup
+groupmod - modificat un grup
 su - switch user
-
 chage - password aginng
 
 fisiere utile:
 /etc/passwd - unde sunt userii
 /etc/shadow - password useri + password aging
 /etc/group - unde sunt grupurile
-/etc/sudoers - drepturi sudo
+/etc/gshadow - parole pr grup. nu am folosit in viata mea asa ceva! (vigr -s)
+/etc/sudoers - drepturi sudo  (visudo)
+
+
+Util
+
+useradd user2 - creare user2
+passwd user2 - setat parola user2
+
+useradd -u 1010 -g 1001 -m -d /home/user3 -k /etc/skel -s /bin/bash user3
+adaugat user3 cu uid 1010 (-u), cu gid 1001 (-g) cu home in /home/user3 (–m –d), default startp up files copiate 
+in home (-k) si shel /bin/bash (-s)
+id user3 - ca sa verific uid si gid
+
+useradd –s /sbin/nologin user4 - creat user4 fara log-in access (-s /sbin/nologin)
+su - user4 - ca sa vad ca nu pot sa ma logez(apare mesaz This account is currently not available.)
+
+chage -l user3  ca sa verific password aging pt user3
+
+groupadd -g 5000 linuxadmin - creat un grup linuxadmin cu gid 5000 
+
+usermod -a -G linuxadmin user2 - adauga user2 si in grupul linuxadmin. 
+                                 Daca nu pun -a user2 e scos in restul grupurilor in care e
+
