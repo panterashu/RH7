@@ -16,3 +16,14 @@ called a tar file (also a tarball).
 
 examples:
 
+tar cvf /tmp/home_pantera.tar /home/pantera/      - creare arhiva la /home/pantera in /tmp cu numele home_pantera.tar
+
+tar cvzf /tmp/home_pantera.tar.gz /home/pantera/  - creare arhiva compresata cu gzip la /home/pantera in /tmp cu numele 
+home_pantera.tar.gz
+
+tar cvjf /tmp/home_pantera.tar.bz2 /home/pantera/ - creare arhiva compresata cu bzip2 la /home/pantera in /tmp cu numele 
+home_pantera.tar.gz
+
+
+
+https://www.tecmint.com/18-tar-command-examples-in-linux/
