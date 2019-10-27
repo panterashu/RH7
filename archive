@@ -1,3 +1,4 @@
+####################################################################################################
 tar - command creates, appends, updates, lists, and extracts files to and from a single file, which is
 called a tar file (also a tarball).
 
@@ -24,6 +25,18 @@ home_pantera.tar.gz
 tar cvjf /tmp/home_pantera.tar.bz2 /home/pantera/ - creare arhiva compresata cu bzip2 la /home/pantera in /tmp cu numele 
 home_pantera.tar.gz
 
-
+tar xvf home_pantera.tar.gz - ca sa despachetez tot
 
 https://www.tecmint.com/18-tar-command-examples-in-linux/
+####################################################################################################
+
+####################################################################################################
+gzip - command is a common way of compressing files
+
+gzip nume_fisier  - face un gzip la nume_fisier cu numele nume_fisier.gz. fisierul original nume_fisier nu mai exista!
+gunzip nume_fisier.gz - ca sa dezarhivez
+####################################################################################################
+
+####################################################################################################
+bzip2 - ca si gzip, dar alt algoritm de compresie
+####################################################################################################
