@@ -1,1 +1,17 @@
 
+useradd - creat useri
+passwd - setat parola useri
+userdel - sters user
+
+groupadd - creat grup nou
+groupdel sters grup
+
+su - switch user
+
+chage - password aginng
+
+fisiere utile:
+/etc/passwd - unde sunt userii
+/etc/shadow - password useri + password aging
+/etc/group - unde sunt grupurile
+/etc/sudoers - drepturi sudo
