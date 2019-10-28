@@ -1,1 +1,30 @@
 
+Linking files or directories creates additional instances for them, but all point to the same physical data location in the
+directory tree. Linked files may or may not have identical inode numbers and metadata depending on how they are
+linked.
+Linux has two ways of creating file and directory links, and they are referred to as soft and hard links.
+
+Soft Link
+A soft link (a.k.a. a symbolic link or a symlink) makes it possible to associate one file with another.
+
+A soft link can cross file system boundaries and can be used to link directories.
+
+Each soft link has a unique inode number that stores the path to the file it is linked with.
+
+To create a soft link for newfile as newfile10 in the same directory, use the ln command with the –s option
+
+ln –s newfile newfile10
+
+If you remove the original file (newfile in this case), the link newfile10 will stay but points to something that does not
+exist.
+
+Hard link
+A hard link associates one or more files with a single inode number, making all files indistinguishable from one another.
+
+A hard link cannot cross file system boundaries, and cannot be used to link directories.
+
+The following example uses the ln command and creates a hard link for newfile2  to
+newfile20 in the same directory (create newfile20 as it currently does not exist):
+
+ln newfile2 newfile20
+
