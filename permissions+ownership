@@ -35,3 +35,36 @@ umask - display current umask value
 The pre-defined initial permission values are 666 (rw-rw-rw-) for files and 777 (rwxrwxrwx) for directories. Even if
 the umask is set to 000, the new files will always get a maximum of 666 permissions, and we use the chmod command
 to add executable bits explicitly if desired.
+
+ex:
+For instance, if you want all your new files and directories to get 640 and 750 permissions, 
+respectively, you can set the value to 027 as follows:
+$ umask 027
+
+chown and chgrp commands that you can use to alter ownership and owning group for files and
+directories; however, you must be root to make these modifications.
+
+PERMISII SPECIALE 
+
+The setuid Bit on Executable Files
+The setuid flag is set on executable files at the file owner level. With this bit set, the file is executed by other regular
+users with the same privileges as that of the file owner.
+
+chmod u+s 
+
+The setgid Bit on Executable Files
+The setgid attribute is set on executable files at the group level. With this bit set, the file is executed by non-owners with
+the exact same privileges that the group members have.
+
+chmod g+s
+
+The setgid bit can also be set on group-shared directories to allow files and sub-directories created in that directory to
+automatically inherit the directory’s owning group. This saves group members sharing the directory contents from
+changing the group on every new file and sub-directory that they add to that directory. The standard behavior for new
+files and sub-directories is to always receive the creator’s group.
+
+The setgid Bit on Shared Directories
+The sticky bit is set on public writable directories (or other directories with rw permissions for everyone) to protect
+files and sub-directories owned by regular users from being deleted or moved by other regular users.
+
+chmod o+t
