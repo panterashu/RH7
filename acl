@@ -9,9 +9,19 @@ however, it needs to be activated for extended file systems. ACLs can also be us
 ACLs are categorized into two groups based on their types, and are referred to as access ACLs and default ACLs.
 Access ACLs are set on individual files and directories whereas default ACLs can only be applied at the directory level.
 Files and sub-directories under a parent directory with default ACLs set inherit the default ACL settings.
+####################################################################################################
+comenzi utile
+- chacl       Changes ACL settings on a file or directory. Available for users who are familiar with its use from IRIX UNIX.
 
-chacl       Changes ACL settings on a file or directory. Available for users who are familiar with its use from IRIX UNIX.
+- getfacl     Displays ACL settings for a file or directory.
 
-getfacl     Displays ACL settings for a file or directory.
+- setfacl     Sets, modifies, substitutes, and deletes ACL settings on a file or directory.
 
-setfacl     Sets, modifies, substitutes, and deletes ACL settings on a file or directory.
+####################################################################################################
+setfacl
+-b Removes all ACL settings.
+-d Applies to the default ACLs.
+-k Removes all default ACL settings.
+-m Sets or modifies ACL settings.
+-R Applies recursively to all files and sub-directories.
+-x Removes an ACL setting.
