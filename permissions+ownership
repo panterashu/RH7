@@ -46,13 +46,13 @@ directories; however, you must be root to make these modifications.
 
 PERMISII SPECIALE 
 
-The setuid Bit on Executable Files
+#The setuid Bit on Executable Files#
 The setuid flag is set on executable files at the file owner level. With this bit set, the file is executed by other regular
 users with the same privileges as that of the file owner.
 
 chmod u+s 
 
-The setgid Bit on Executable Files
+#The setgid Bit on Executable Files#
 The setgid attribute is set on executable files at the group level. With this bit set, the file is executed by non-owners with
 the exact same privileges that the group members have.
 
@@ -63,7 +63,12 @@ automatically inherit the directory’s owning group. This saves group members s
 changing the group on every new file and sub-directory that they add to that directory. The standard behavior for new
 files and sub-directories is to always receive the creator’s group.
 
-The setgid Bit on Shared Directories
+***Mai mult ca sigur o sa vina task unde dupa ce ai pus grup owner ex admin pe un director, o sa-ti ceara ca fisierele create
+de utilizatori din acelasi grup sa fie tot in grupul admin.
+
+
+
+#The setgid Bit on Shared Directories#
 The sticky bit is set on public writable directories (or other directories with rw permissions for everyone) to protect
 files and sub-directories owned by regular users from being deleted or moved by other regular users.
 
