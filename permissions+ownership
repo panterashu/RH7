@@ -23,6 +23,7 @@ assign(=)     allocates permissions to owner, group members and public at once
 
 chmod - command to modify access rights on files and directories
 
+####################################################################################################
 
 umask 
 The umask is a three-digit value that refers to read/write/execute permissions for owner, group, and public. Its purpose
@@ -41,8 +42,12 @@ For instance, if you want all your new files and directories to get 640 and 750 
 respectively, you can set the value to 027 as follows:
 $ umask 027
 
+####################################################################################################
+
 chown and chgrp commands that you can use to alter ownership and owning group for files and
 directories; however, you must be root to make these modifications.
+
+####################################################################################################
 
 PERMISII SPECIALE 
 
