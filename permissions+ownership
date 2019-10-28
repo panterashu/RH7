@@ -1,0 +1,37 @@
+drepturi si alte cele
+
+-u: user    The owner of file or directory. Usually, the file creator is its owner
+
+-g: group   A set of users that need identical access on files and directories that they share. Group information is maintained in the /etc/group file and users
+are assigned to groups according to shared file access needs.
+
+-o: other   All other users on the system except for the owner and group members. Also called public.
+
+r: read   4
+- file:        lets us view the contents and copy them to another file
+- directory:   lets us view the content of the directory
+w: write  2
+- file:        allow to modify content
+- directory:   allows to create, remove or rename files or subdirectories
+x: excute 1
+- file:        allow to execute file
+- directory:   allow to cd in directory
+
+add(+)        allocate permission
+revoke(-)     remove permission
+assign(=)     allocates permissions to owner, group members and public at once
+
+chmod - command to modify access rights on files and directories
+
+
+umask 
+The umask is a three-digit value that refers to read/write/execute permissions for owner, group, and public. Its purpose
+is to set default permissions on new files and directories created without touching the existing files and directories. In
+RHEL, the default umask value is set to 0022 for the root and other system users and 0002 for all regular users with
+bash shell assigned. Note that the left-most 0 has no significance
+
+umask - display current umask value
+
+The pre-defined initial permission values are 666 (rw-rw-rw-) for files and 777 (rwxrwxrwx) for directories. Even if
+the umask is set to 000, the new files will always get a maximum of 666 permissions, and we use the chmod command
+to add executable bits explicitly if desired.
