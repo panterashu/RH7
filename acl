@@ -25,3 +25,23 @@ setfacl
 -m Sets or modifies ACL settings.
 -R Applies recursively to all files and sub-directories.
 -x Removes an ACL setting.
+
+The setfacl command is used to apply or modify ACL settings on a file or directory. The way it accepts specific
+permissions at the command line is explained:
+
+u[ser]:UID:perms Permissions assigned to a specific user (user name or UID). The user must exist in the /etc/passwd file.
+
+g[roup]:GID:perms Permissions assigned to a specific group (group name or GID). The group must exist in the /etc/group file.
+
+m[ask]:perms Maximum permissions a specific user or a specific group can have on a file or directory. If this is set to rw-, for example, then no specific user or
+group will have more permissions than read and write.
+
+o[ther]:perms Permissions assigned to users not in the owning group.
+
+The Role of the mask Value
+
+The value of mask determines the maximum allowable permissions placed for a specific user or group on a file or
+directory. If it is set to rw, for instance, no specific user or group will exceed those permissions. The mask value is
+displayed on a separate line in the getfacl command output. Each time ACLs are modified for a file or directory, the
+mask is recalculated automatically and applied unless we supply our own desired mask value with the command.
+
