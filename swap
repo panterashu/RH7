@@ -1,0 +1,16 @@
+determine swap:
+
+free -g
+free -h
+
+creat swap
+mkswap /device
+
+enable swap
+swapon /device
+
+sa verific
+swapon -s (Display  swap  usage summary by device)
+
+- sa nu uiti sa treci swap-ul nou creat in fstab
+ex:
