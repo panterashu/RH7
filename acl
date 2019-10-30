@@ -45,3 +45,10 @@ directory. If it is set to rw, for instance, no specific user or group will exce
 displayed on a separate line in the getfacl command output. Each time ACLs are modified for a file or directory, the
 mask is recalculated automatically and applied unless we supply our own desired mask value with the command.
 
+
+exemple
+daca vreau sa fac ce acl sunt pe un fisier (file1)
+getfacl file1
+
+daca vreau sa setez acl, in acest caz rwx pe un fisier(file1) pentru un user user1
+setfacl -m u:user1:7 file1
