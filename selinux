@@ -1,1 +1,3 @@
+selinux 
 
+getenforce - display the current SELinux mode in effect
