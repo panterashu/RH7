@@ -47,7 +47,7 @@ mask is recalculated automatically and applied unless we supply our own desired 
 
 
 exemple
-daca vreau sa fac ce acl sunt pe un fisier (file1)
+daca vreau sa vad ce acl sunt pe un fisier (file1)
 getfacl file1
 
 daca vreau sa setez acl, in acest caz rwx pe un fisier(file1) pentru un user user1
