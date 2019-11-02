@@ -1,3 +1,5 @@
 selinux 
 
 getenforce - display the current SELinux mode in effect
+
+/etc/selinux/config - main config file selinux [de aici modifici modul la selinux, apoi reboot]
