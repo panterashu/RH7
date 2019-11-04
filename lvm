@@ -1,1 +1,35 @@
 
+fdisk /dev/vda
+
+creat phisycal volume
+pvcreate /dev/vda2 /dev/vdb1
+
+creat volume grup cu numele vg-alpha format din /dev/vda2 /dev/vdb1
+vgcreate vg-alpha /dev/vda2 /dev/vdb1
+
+creat un logical volume nou cu numele hercules de 2GB din volume group-ul vg-alpha
+lvcreate -n hercules -L 2G vg-alpha
+- L cand dau marime in mb, gb. etc... (M, GB)
+- l cand dau marime in extenti
+
+creat xfs filesystem pe /dev/vg-alpha/hercules
+mkfs -t xfs /dev/vg-alpha/hercules
+
+unde se monteaza fs
+mkdir /mnt/hercules
+
+ce se pune in fstab
+/dev/vg-alpha/hercules /mnt/hercules xfs defaults 1 2  
+
+mount -a
+
+extinde vg-ul vg-alpha cu un pb nou /dev/vdb2
+vgextend vg-alpha /dev/vdb2
+
+extinde lv /dev/vg-alpha/hercules cu 300 MB
+lvextend -L +300M /dev/vg-alpha/hercules
+
+lvextend -l +128 extinde cu 128 extenti
+
+xfs_growfs  - xfs
+resize2fs   - ext
