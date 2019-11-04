@@ -1,6 +1,8 @@
 
 fdisk /dev/vda
-
+  n (p sau e)
+w
+partprobe
 creat phisycal volume
 pvcreate /dev/vda2 /dev/vdb1
 
