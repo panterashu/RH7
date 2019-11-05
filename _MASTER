@@ -1,0 +1,125 @@
+####################################################################################################
+RESET ROOT PASSWORD
+
+- reboot server si intrerupe bootloader (orice tasta)
+- aleg default entry (prima ) si apas e ca sa editez
+- caut linia ce incepe cu linux16 si ma duc la finalul liniei(tasta END) si adaug la final rd.break
+- ctrl+x ca sa salvez modificarea facuta
+- dau un mount ca sa verific status la sysroot (in mod normal /sysroot e in ca pe ro)
+- mount -o remount,rw /sysroot
+- chroot /sysroot
+- passwd root
+- touch /.autorelabel
+- exit
+- exit
+
+####################################################################################################
+
+systemctl get-default - sa vad default target 
+
+systemctl list-units --type target - sa vad toate target-urile disponibile
+
+systemctl isolate graphical.target - ma trece in runlevel 5 am interfata
+systemctl isolate multi-user.target - ma trece in runlevel 3
+
+systemctl set-default graphical.target - seteaza default runlevel 5
+systemctl set-default multi-user.target - seteaza default runlebel 3
+
+####################################################################################################
+SETAT RETEA
+
+nmcli con show   - show all connections
+nmcli dev status - show device status
+
+nmcli con add con-name "static-eth0" ifname eth0 type ethernet ip4 172.25.X.11/24 gw4 172.25.X.254
+nmcli con mod "static-eth0" ipv4.dns 172.25.254.254
+nmcli con up "static-eth0"
+nmcli con show --active
+
+in /etc/hosts adaug aliasuri
+####################################################################################################
+SETAT HOSTNAME
+
+hostnamectl set-hostname nume_server
+
+sau 
+
+vim /etc/hostaname
+
+####################################################################################################
+ADAUGAT REPO NOU 
+
+yum repolist - sa vad ce repouri sunt deja adaugate
+
+/etc/yum.repos.d - aici se face un fisier nou pentru repo (nume_fisiser.repo)
+exemplu ce contine un repo file (5 randuri)
+
+[updates]
+name=Red Hat Updates
+baseurl=http://content.example.com/rhel7.0/x86_64/errata
+enabled=1
+gpgcheck=0
+
+cum sa adaug un repot din linie de comanda
+yum-config-manager --add-repo="url_repo"
+####################################################################################################
+SETAT SELINUX
+
+getenforce - ca sa vad ce valoare are selinux
+
+sestatus - mai multe detalii despre selinux
+
+/etc/selinux/config - aici setez selinux in functie de ce se cere (enforcing, permissive, disabled) apoi reboot
+####################################################################################################
+useri
+
+useradd -u 5555 user2   (creat utilizator user2 cu UID 5555)
+useradd -u 5551 -s /sbin/nologin user3 (creat utilizator user3 cu UID 5551, dar fara log-in)
+passwd user2 - sa setez parola la user2
+chown user8:grup8 director - setez owner si grup pe director
+groupadd test
+usermod -aG test user2 (adaug user2 la un grup aditional, fara sa-l scot din ce grup e deja bagat)
+chmod 2770 dir (setez setgid pe directorul dir ca sa creez un spatiu colaborativ pentru useri, orice
+fisier ) 
+
+####################################################################################################
+find
+
+find / -user pantera -exec cp -rfp {} /tmp/pantera_backup/ \; 
+(cauta tot ce apartine utilizatorului pantera si copiaza in /tmp/pantera_backup/)
+####################################################################################################
+fdisk+lvm+fs+swap
+####################################################################################################
+LDAP
+
+la acest pas ar fi frumos sa fii deja in graphical.targe
+
+yum -y install authconfig-gtk sssd krb5-workstation
+
+authconfig-gtk - rulezi din command line 
+
+sau Applications → Sundry → Authentication. Enter the root password when prompted.
+
+On the Identity & Authentication tab, select LDAP from the User Account Database drop-down. 
+Fill out the LDAP Search Base DN and LDAP Server fields.
+
+LDAP Search BAse DN: dc=example,dc=com
+LDAP Server: classroom.example.com
+
+Auth method: Kerberos password
+Realm: EXAMPLE.COM
+KDCs: classroom.example.com
+Admin Servers: classroom.example.com
+####################################################################################################
+kernel
+
+yum list kernel
+uname -r
+uname -a
+yum update kernel
+####################################################################################################
+links
+
+ln -s /path/to/file /path/to/symlink - face sofllink 
+ln /path/to/file /path/to/symlink - face hardlink
+####################################################################################################
