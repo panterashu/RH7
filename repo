@@ -1,0 +1,21 @@
+ADAUGAT REPO NOU 
+
+yum repolist - sa vad ce repouri sunt deja adaugate
+
+/etc/yum.repos.d - aici se face un fisier nou pentru repo (nume_fisiser.repo)
+exemplu ce contine un repo file
+[numre_repo]
+name= iar un nume
+baseurl=
+enabled=1
+gpgcheck=0
+
+exemplu
+[updates]
+name=Red Hat Updates
+baseurl=http://content.example.com/rhel7.0/x86_64/errata
+enabled=1
+gpgcheck=0
+
+cum sa adaug un repot din linie de comanda
+yum-config-manager --add-repo="url_repo"
