@@ -1,0 +1,21 @@
+configure a system for LDAP + Kerberos
+
+ex: classroom.example.com
+
+yum -y install authconfig-gtk sssd krb5-workstation
+
+authconfig-gtk
+
+sau Applications → Sundry → Authentication. Enter the root password when prompted.
+
+On the Identity & Authentication tab, select LDAP from the User Account Database drop-down. 
+Fill out the LDAP Search Base DN and LDAP Server fields.
+
+LDAP Search BAse DN: dc=example,dc=com
+LDAP Server: classroom.example.com
+
+Auth method: Kerberos password
+Realm: EXAMPLE.COM
+KDCs: classroom.example.com
+Admin Servers: classroom.example.com
+
