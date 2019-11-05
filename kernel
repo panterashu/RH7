@@ -1,1 +1,8 @@
 
+yum list kernel
+
+uname -r
+
+uname -a
+
+yum update kernel
