@@ -109,7 +109,8 @@ m -help
 partprobe - sa anunt kernelul ca au aparut modificari in partition table
 
 Mai mult ca sigur, sunt deja 3 partitii primare.Faci partitia 4 extended.In a 4 partitie extended faci restu partitiilor,
-lvm, swap, ce o fi.
+lvm, swap, ce o fi.Odata ce fac partitia 4 primara, execut tot fdisk /device si o sa-mi apara :Adding logical partition 5 cand
+vreau sa fac o partitie noua.
 
 pvcreate /dev/vda2 /dev/vdb1          - sa initializezi phisycal volume
 vgcreate vg-alpha /dev/vda2 /dev/vdb1 - se face un vg nou vg-alpha din 2 pv-uri /dev/vda2 /dev/vdb1
@@ -148,7 +149,7 @@ swapon /dev/vdb1 - ca sa activez swap
 asa trec swap in fstab
 UUID=fbd7fa60-b781-44a8-961b-37ac3ef572bf swap swap defaults 0 0
 
-fee -m sau gree -g - sa vad cat swap am
+free -m sau free -g - sa vad cat swap am
 
 swapon -s
 ####################################################################################################
