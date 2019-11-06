@@ -96,6 +96,17 @@ sau
 lsblk
 
 fdisk /device ca sa fac partii
+p -print la partition table
+n - new partition
+w -write dupa ce au facut modificari
+L -ca sa vad tipuri de partitii
+t -ca sa schimbi partition type
+d -ca sa sterg o partitie
+m -help
+82 -swap
+8e -lvm
+
+partprobe - sa anunt kernelul ca au aparut modificari in partition table
 
 Mai mult ca sigur, sunt deja 3 partitii primare.Faci partitia 4 extended.In a 4 partitie extended faci restu partitiilor,
 lvm, swap, ce o fi.
@@ -121,6 +132,8 @@ ce pun in fstab
 
 mount -a     - sa fiu sigur ca se va monta din fstab si rezista la reboot
 
+blkid /dev/vdb1 - sa aflu UUID
+
 vgextend vg-alpha /dev/vdb2     - extinde vg-ul vg-alpha cu un pb nou /dev/vdb2
 
 lvextend -L +300M /dev/vg-alpha/hercules  extinde lv /dev/vg-alpha/hercules cu 300 MB
@@ -129,7 +142,15 @@ lvextend -l +128 extinde cu 128 extenti   extinde lv /dev/vg-alpha/hercules cu 1
 xfs_growfs  - ca sa faci rescan la xfs fs dupa ce ai marit lv-ul
 resize2fs   - ca sa faci rescan la ext4 fs dupa ce ai marit lv-ul
 
+mkswap /dev/vdb1 - face swap pe /dev/vdb1 (sa nu uiti sa faci partitia de tip swap 82)
+swapon /dev/vdb1 - ca sa activez swap 
 
+asa trec swap in fstab
+UUID=fbd7fa60-b781-44a8-961b-37ac3ef572bf swap swap defaults 0 0
+
+fee -m sau gree -g - sa vad cat swap am
+
+swapon -s
 ####################################################################################################
 LDAP
 
@@ -189,4 +210,6 @@ Day-of-Month  1 - 31
 Month         1-12
 Day-of-Week 0-6 (0 e duminica, poate fi si 7 duminica)
 Command
+####################################################################################################
+autofs
 
