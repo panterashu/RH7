@@ -177,3 +177,8 @@ Configure chronyd on server to synchronize the time with classroom.example.com.
 4. timedatectl - Verify the hardware clock on server was synchronized with NTP
 NTP synchronized: yes 
 5. chronyc sources -v
+####################################################################################################
+CRONTAB
+
+
+
