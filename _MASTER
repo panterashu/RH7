@@ -110,6 +110,7 @@ vgdisplay
 lvdisplay
 
 mkfs -t xfs /dev/vg-alpha/hercules     - se face filesystem xfs pe /dev/vg-alpha/hercules
+man mkfs - in caz ca tre sa faci un sf mai exotic, le gasesti mai jos in pagina
 
 mkdir /mnt/hercules - unde o sa montez fs-ul
 
@@ -126,6 +127,7 @@ lvextend -l +128 extinde cu 128 extenti   extinde lv /dev/vg-alpha/hercules cu 1
 
 xfs_growfs  - ca sa faci rescan la xfs fs dupa ce ai marit lv-ul
 resize2fs   - ca sa faci rescan la ext4 fs dupa ce ai marit lv-ul
+
 
 ####################################################################################################
 LDAP
