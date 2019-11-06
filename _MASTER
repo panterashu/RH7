@@ -89,6 +89,44 @@ find / -user pantera -exec cp -rfp {} /tmp/pantera_backup/ \;
 (cauta tot ce apartine utilizatorului pantera si copiaza in /tmp/pantera_backup/)
 ####################################################################################################
 fdisk+lvm+fs+swap
+
+fdisk -l | grep -i sd - sa vad cate partitii sunt deja
+sau 
+lsblk
+
+fdisk /device ca sa fac partii
+
+Mai mult ca sigur, sunt deja 3 partitii primare.Faci partitia 4 extended.In a 4 partitie extended faci restu partitiilor,
+lvm, swap, ce o fi.
+
+pvcreate /dev/vda2 /dev/vdb1          - sa initializezi phisycal volume
+vgcreate vg-alpha /dev/vda2 /dev/vdb1 - se face un vg nou vg-alpha din 2 pv-uri /dev/vda2 /dev/vdb1
+vgcreate -s 16M vg-alpha /dev/vda2 /dev/vdb1 -se face un vg nou vg-alpha din 2 pv-uri /dev/vda2 /dev/vdb1 cu marimea unuiextend de 16 mega
+lvcreate -n hercules -L 2G vg-alpha   - se face un lvm nou cu numele hercules de 2 GB din vg-ul vg-alpha
+lvcreate -n hercules -l 128 vg-alpha  - se face un lvm nou cu numele hercules de 128 extenti din vg-ul vg-alpha
+
+pvdisplay
+vgdisplay
+lvdisplay
+
+mkfs -t xfs /dev/vg-alpha/hercules     - se face filesystem xfs pe /dev/vg-alpha/hercules
+
+mkdir /mnt/hercules - unde o sa montez fs-ul
+
+ce pun in fstab
+
+/dev/vg-alpha/hercules /mnt/hercules xfs defaults 1 2 
+
+mount -a     - sa fiu sigur ca se va monta din fstab si rezista la reboot
+
+vgextend vg-alpha /dev/vdb2     - extinde vg-ul vg-alpha cu un pb nou /dev/vdb2
+
+lvextend -L +300M /dev/vg-alpha/hercules  extinde lv /dev/vg-alpha/hercules cu 300 MB
+lvextend -l +128 extinde cu 128 extenti   extinde lv /dev/vg-alpha/hercules cu 128 de extenti
+
+xfs_growfs  - ca sa faci rescan la xfs fs dupa ce ai marit lv-ul
+resize2fs   - ca sa faci rescan la ext4 fs dupa ce ai marit lv-ul
+
 ####################################################################################################
 LDAP
 
