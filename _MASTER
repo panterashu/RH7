@@ -180,5 +180,13 @@ NTP synchronized: yes
 ####################################################################################################
 CRONTAB
 
+crontab -eu user5 - setezi crontab pentru user5
+ccrontab -l
 
+Minutes 0-59
+Hours   0-23
+Day-of-Month  1 - 31
+Month         1-12
+Day-of-Week 0-6 (0 e duminica, poate fi si 7 duminica)
+Command
 
