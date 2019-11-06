@@ -164,3 +164,16 @@ links
 ln -s /path/to/file /path/to/symlink - face sofllink 
 ln /path/to/file /path/to/symlink - face hardlink
 ####################################################################################################
+
+chrony
+
+rpm -qa | grep -i chrony
+
+/etc/chrony.conf - main config file 
+Configure chronyd on server to synchronize the time with classroom.example.com.
+1. vim /etc/chrony.conf and add classroom.example.com (comment other servers if needed)
+2. systemctl restart chronyd
+3. timedatectl set-ntp true - Turn on NTP synchronization, if not already turned on
+4. timedatectl - Verify the hardware clock on server was synchronized with NTP
+NTP synchronized: yes 
+5. chronyc sources -v
