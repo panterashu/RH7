@@ -187,6 +187,9 @@ yum list kernel
 uname -r
 uname -a
 yum update kernel
+
+/etc/grub2.cfg - config file de unde se seteaza kernel
+/boot - unde gasesti toti kernelii
 ####################################################################################################
 links
 
