@@ -227,8 +227,17 @@ autofs
 ####################################################################################################
 acl
 
+getfacl fisier - ca sa vad ce acl-uri sunt deja setate
+
+setfacl -m u:username:rwx file user username are rwx pe fisier
+setfacl -m g:name:rw file grupul name are rw pe file
+setfacl -m o::- file - other nu are drepturi
+-x sa scot acl
 ####################################################################################################
 tar
 
+tar czvf dir1.tar.gz dir1 - tar arhivat cu gz
+tar cjvf dir1.tar.bz2 dir1 - tar arhivat cu bzip2
+tar tvf arhiva - cand vreau sa vad ce e in arhiva
 
 
