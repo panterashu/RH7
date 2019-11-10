@@ -78,7 +78,8 @@ useradd -u 5555 user2   (creat utilizator user2 cu UID 5555)
 useradd -u 5551 -s /sbin/nologin user3 (creat utilizator user3 cu UID 5551, dar fara log-in)
 passwd user2 - sa setez parola la user2
 chown user8:grup8 director - setez owner si grup pe director
-groupadd test
+groupadd testgrup
+groupadd -g 5000 testgrup
 usermod -aG test user2 (adaug user2 la un grup aditional, fara sa-l scot din ce grup e deja bagat)
 chmod 2770 dir (setez setgid pe directorul dir ca sa creez un spatiu colaborativ pentru useri, orice
 fisier ) 
