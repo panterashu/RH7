@@ -92,7 +92,7 @@ find / -user pantera -exec cp -rfp {} /tmp/pantera_backup/ \;
 
 -atime 50  -   accessed 50 days back
 -mtime +50 -  modified more than 50 days
-–mtime -100  - modified less that 50 days
+–mtime -50  - modified less that 50 days
 -group developer find all files that belongs to group Developer
 -perm - dupa permisiuni
 
