@@ -225,6 +225,18 @@ Command
 ####################################################################################################
 autofs
 
+ yum install autofs
+
+vim /etc/auto.master.d/home.autofs
+
+/home/guests /etc/auto.home
+
+vim /etc/auto.home
+
+ldapuser9 -rw,sync classroom.example.com:/home/guests/&
+
+systemctl enable autofs
+systemctl start autofs
 ####################################################################################################
 acl
 
