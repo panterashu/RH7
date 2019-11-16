@@ -62,7 +62,10 @@ enabled=1
 gpgcheck=0
 
 cum sa adaug un repot din linie de comanda
-yum-config-manager --add-repo="url_repo"
+yum-config-manager --add-repo=url_repo
+
+yum clean all
+yum repolist
 ####################################################################################################
 SETAT SELINUX
 
