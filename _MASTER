@@ -233,6 +233,11 @@ Day-of-Month  1 - 31
 Month         1-12
 Day-of-Week 0-6 (0 e duminica, poate fi si 7 duminica)
 Command
+
+in caz ca nu ai: 
+yum install cronie
+systemctl enable crond
+systemctl start crond
 ####################################################################################################
 autofs
 
