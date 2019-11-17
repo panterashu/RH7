@@ -38,6 +38,10 @@ nmcli con up "static-eth0"
 nmcli con show --active
 
 in /etc/hosts adaug aliasuri
+
+systemctl stop NetworkManager - network manager in caz ca sunt probleme
+
+nmtui
 ####################################################################################################
 SETAT HOSTNAME
 
