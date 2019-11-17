@@ -34,6 +34,10 @@ nmcli dev status - show device status
 
 nmcli con add con-name "static-eth0" ifname eth0 type ethernet ip4 172.25.X.11/24 gw4 172.25.X.254
 nmcli con mod "static-eth0" ipv4.dns 172.25.254.254
+
+nmcli connection modify eth0 ipv4.method manual
+nmcli connection modify eth0 connection.autoconnect true
+
 nmcli con up "static-eth0"
 nmcli con show --active
 
