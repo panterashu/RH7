@@ -19,3 +19,10 @@ gpgcheck=0
 
 cum sa adaug un repot din linie de comanda
 yum-config-manager --add-repo="url_repo"
+
+https://linuxconfig.org/how-to-list-import-and-remove-archive-signing-keys-on-centos-7
+rpm -q gpg-pubkey --qf '%{SUMMARY}\n'
+
+vim repo.sh
+ansible managed3.localhost.com -b -m rpm_key -a 'key=https://artifacts.elastic.co/GPG-KEY-elasticsearch state=present'
+ansible managed3.localhost.com -b -m yum_repository -a 'name="elasticsearch-6.x" description="Elasticsearch repository for 6.x packages" baseurl="https://artifacts.elastic.co/packages/6.x/yum" gpgcheck=yes gpgkey="https://artifacts.elastic.co/GPG-KEY-elasticsearch" enabled=yes'
